@@ -24,6 +24,11 @@ td {
     font-size: 2em;
     color: white;
     border: 5px solid white;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Entfernt die äußeren Kanten der Tabelle */
