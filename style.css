@@ -13,6 +13,19 @@ h1 {
     color: white;
 }
 
+#status {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: white; /* Standardfarbe (Gelb für X) */
+}
+
+#current-player {
+    color: #00B0EF; /* Standardfarbe (X) */
+    transition: color 0.3s ease-in-out;
+}
+
 table {
     border-collapse: collapse;
 }

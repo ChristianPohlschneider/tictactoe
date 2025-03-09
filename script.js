@@ -10,11 +10,11 @@ function init() {
 }
 
 function handleClick(index, element) {
-    if (fields[index] !== null || gameOver) return; // Falls das Feld schon belegt ist oder das Spiel vorbei ist, nichts tun
+    if (fields[index] !== null || gameOver) return;
 
-    fields[index] = currentPlayer; // Spielerzug speichern
-    element.innerHTML = currentPlayer === cross ? generateCrossSVG() : generateCircleSVG(); // SVG einfügen
-    element.onclick = null; // onclick-Event entfernen
+    fields[index] = currentPlayer;
+    element.innerHTML = currentPlayer === cross ? generateCrossSVG() : generateCircleSVG();
+    element.onclick = null;
 
     let winData = checkWinner();
     if (winData) {
@@ -23,11 +23,18 @@ function handleClick(index, element) {
         return;
     }
 
-    currentPlayer = currentPlayer === cross ? circle : cross; // Spieler wechseln
+    // Spieler wechseln
+    currentPlayer = currentPlayer === cross ? circle : cross;
+    
+    // Spieleranzeige aktualisieren
+    let playerElement = document.getElementById("current-player");
+    playerElement.textContent = currentPlayer;
+    playerElement.style.color = currentPlayer === cross ? "#FFC000" : "#00B0EF"; // Farbe wechseln
 }
 
 function render() {
-    let html = '<div id="board-wrapper" style="position: relative; width: 300px; height: 300px;">';
+    let html = `<div id="status">Current Player: <span id="current-player">${currentPlayer}</span></div>`;
+    html += '<div id="board-wrapper" style="position: relative; width: 300px; height: 300px;">';
     html += "<table>";
 
     for (let i = 0; i < 3; i++) {
